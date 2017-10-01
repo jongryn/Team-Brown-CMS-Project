@@ -1,0 +1,20 @@
+{
+  "name": "Team-Brown-CMS-Project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jongryn/Team-Brown-CMS-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jongryn/Team-Brown-CMS-Project/issues"
+  },
+  "homepage": "https://github.com/jongryn/Team-Brown-CMS-Project#readme"
+}
