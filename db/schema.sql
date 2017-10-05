@@ -32,7 +32,7 @@ CREATE TABLE tasks
 );
 
 
-CREATE TABLE tasks
+CREATE TABLE todo
 (
     id int NOT NULL AUTO_INCREMENT,
     task varchar(255) NOT NULL,
@@ -41,7 +41,6 @@ CREATE TABLE tasks
     day INT NOT NULL,
     timeOfDay NOT NULL,
     note varchar(255),
-    location varchar(255),
     urgency decimal(3,1) NULL,
     PRIMARY KEY (id)
 );
