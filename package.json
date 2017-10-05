@@ -18,12 +18,17 @@
   },
   "homepage": "https://github.com/jongryn/Team-Brown-CMS-Project#readme",
   "dependencies": {
+<<<<<<< HEAD
     "body-parser": "^1.18.2",
     "express": "^4.16.1",
     "google-auth-library": "^0.11.0",
     "googleapis": "^22.2.0",
     "sequelize-cli": "^3.0.0",
     "sql": "^0.78.0"
+=======
+    "google-auth-library": "^0.11.0",
+    "googleapis": "^22.2.0"
+>>>>>>> master
   },
   "devDependencies": {
     "browserify": "^14.4.0",
