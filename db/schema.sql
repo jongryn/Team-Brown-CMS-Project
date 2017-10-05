@@ -19,16 +19,16 @@ USE task_saver_db;
 -- Create the table tasks.
 CREATE TABLE tasks
 (
-id int NOT NULL AUTO_INCREMENT,
-task varchar(255) NOT NULL,
-year INT NOT NULL,
-month INT NOT NULL,
-day INT NOT NULL,
-timeOfDay NOT NULL,
-note varchar(255),
-location varchar(255),
-urgency decimal(3,1) NULL,
-PRIMARY KEY (id)
+    id int NOT NULL AUTO_INCREMENT,
+    task varchar(255) NOT NULL,
+    year INT NOT NULL,
+    month INT NOT NULL,
+    day INT NOT NULL,
+    timeOfDay NOT NULL,
+    note varchar(255),
+    location varchar(255),
+    urgency decimal(3,1) NULL,
+    PRIMARY KEY (id)
 );
 
 
@@ -38,10 +38,6 @@ PRIMARY KEY (id)
 -- INSERT INTO tasks (task) VALUES ('Call Shannon back.');
 
 SELECT * FROM tasks
-
-
-================================================================================
-================================================================================
 
 -- /*
 --
