@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/jongryn/Team-Brown-CMS-Project#readme",
   "dependencies": {
+    "fullcalendar": "^3.5.1",
     "google-auth-library": "^0.11.0",
-    "googleapis": "^22.2.0"
+    "googleapis": "^22.2.0",
+    "moment": "^2.18.1"
   },
   "devDependencies": {
     "browserify": "^14.4.0",
