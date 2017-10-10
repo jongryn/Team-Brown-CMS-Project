@@ -33,6 +33,11 @@
     <link href="public/assets/css/style-responsive.css" rel="stylesheet" />
 	<link href="public/assets/css/xcharts.min.css" rel=" stylesheet">
 	<link href="public/assets/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
+  <!-- Modal CDN for Time -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- =======================================================
         Theme Name: NiceAdmin
         Theme URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
@@ -413,20 +418,74 @@
                 </div>
                 <!--calendar end -->
 
-                
+
+
                 <div class="container">
-                        <h2>Modal Example</h2>
-                        
+                <h2>Modal Example</h2>
+                <!-- Trigger the modal with a button -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Add Event</h4>
+                        </div>
+                        <div class="modal-body">
+                          <div class=“control-group”>
+                              <label class=“control-label” for=“inputPatient”>Event:</label>
+                              <div class="field desc">
+                                  <input class=“form-control” id=“title” name=“title” placeholder=“Event” type=“text” value=“Event”>
+                              </div>
+                          </div>
+                        </div>
+                        <div class=“control-group”>
+                          <label for="from">From</label>
+                          <input type="text" id="from" name="from">
+                          <label for="to">to</label>
+                          <input type="text" id="to" name="to">
+                            <!-- <div class=“controls controls-row” id=“when” style=“margin-top:5px;”>
+                            </div> -->
+                        </div>
+                        <!-- <input type=“hidden” id=“startTime”/>
+                        <input type=“hidden” id=“endTime”/> -->
+                        <div class=“modal-header”>
+                            <!-- <button type=“button” class=“close” data–dismiss=“modal”>&times;</button> -->
+                            <label class=“control-label” for=“eventDetails”>Event Details:</label>
+                            <!-- <h4 class=“modal-title”>Event Details</h4> -->
+                        </div>
+                        <div id=“modalBody” class=“modal-body”>
+                            <h4 id=“modalTitle” class=“modal-title”></h4>
+                            <div id=“modalWhen” style=“margin-top:5px;”></div>
+                        </div>
+                        <input type=“hidden” id=“eventID”/>
+                        <div class="modal-footer">
+                          <button type=“submit” class=“btn btn-primary” id=“submitButton”>Save</button>
+                          <button class=“btn” data–dismiss=“modal” aria–hidden=“true”>Cancel</button>
+                          <button type=“submit” class=“btn btn-danger” id=“deleteButton”>Delete</button>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                <!-- <div class="container">
+                        <h2>Modal Example</h2> -->
+
                         <!-- Trigger the modal with a button -->
-                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-                        
+                        <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+
                          <!-- Modal to Add Event -->
-                        
-                        <div id=“createEventModal” class=“modal fade” role=“dialog”>
-                            <div class=“modal-dialog”>
-                        
+
+                        <!-- <div id=“createEventModal” class=“modal fade” role=“dialog”>
+                            <div class=“modal-dialog”> -->
+
                                 <!-- Modal Content -->
-                                <div class=“modal-content”>
+                                <!-- <div class=“modal-content”>
                                     <div class=“modal-header”>
                                         <button type=“button” class=“close” data–dismiss=“modal”>&times;</button>
                                         <h4 class=“modal-title”>Add Event</h4>
@@ -452,10 +511,10 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        
+                        </div> -->
+
                         <!-- Modal to Event Details -->
-                        <div id=“calendarModal” class=“modal fade”>
+                        <!-- <div id=“calendarModal” class=“modal fade”>
                             <div class=“modal-dialog”>
                                 <div class=“modal-content”>
                                     <div class=“modal-header”>
@@ -473,10 +532,10 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        
+                        </div> -->
+
                         <!-- Modal -->
-                        
+
                         </div>
 
 
@@ -891,6 +950,40 @@
 	<script src="public/assets/js/jquery.slimscroll.min.js"></script>
 
   <script>
+
+      // Modal Date
+      $( function() {
+        var dateFormat = "mm/dd/yy",
+          from = $( "#from" )
+            .datepicker({
+              defaultDate: "+1w",
+              changeMonth: true,
+              numberOfMonths: 3
+            })
+            .on( "change", function() {
+              to.datepicker( "option", "minDate", getDate( this ) );
+            }),
+          to = $( "#to" ).datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            numberOfMonths: 3
+          })
+          .on( "change", function() {
+            from.datepicker( "option", "maxDate", getDate( this ) );
+          });
+
+        function getDate( element ) {
+          var date;
+          try {
+            date = $.datepicker.parseDate( dateFormat, element.value );
+          } catch( error ) {
+            date = null;
+          }
+
+          return date;
+        }
+      } );
+
 
       //knob
       $(function() {
