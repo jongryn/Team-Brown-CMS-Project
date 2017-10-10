@@ -36,12 +36,11 @@ CREATE TABLE todo
 (
     id int NOT NULL AUTO_INCREMENT,
     task varchar(255) NOT NULL,
-    year INT NOT NULL,
-    month INT NOT NULL,
-    day INT NOT NULL,
-    timeOfDay NOT NULL,
+    dueDate varchar(255) NOT NULL,
+    category varchar(255) NOT NULL,
     note varchar(255),
-    urgency decimal(3,1) NULL,
+    urgency integer(3,1) NULL,
+    complete boolean NOT NULL
     PRIMARY KEY (id)
 );
 

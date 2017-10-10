@@ -18,12 +18,12 @@ module.exports = function(app) {
   });
 
   // 404 route loads 404.html
-  app.get("/cms", function(req, res) {
-    res.sendFile(path.join(__dirname, "../views/cms.html"));
+  app.get("/404", function(req, res) {
+    res.sendFile(path.join(__dirname, "../views/404.html"));
   });
 
   // basic_table route loads basic_table.html
-  app.get("/blog", function(req, res) {
+  app.get("/basic_table", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/basic_table.html"));
   });
 
@@ -68,7 +68,7 @@ module.exports = function(app) {
   });    
 
   // profile route loads profile.html
-  app.get("/profile", function(req, res) {
+  app.get("/views/profile.html", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/profile.html"));
   });  
   
