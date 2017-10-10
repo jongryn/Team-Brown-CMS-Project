@@ -1,13 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
-    var Todo = sequelize.define("todo", {
-      id: DataTypes.INTEGER,
-      task: DataTypes.STRING,
-      year: DataTypes.INTEGER,
-      month: DataTypes.INTEGER,
-      day: DataTypes.INTEGER,
-      timeOfDay: DataTypes.STRING,
-      note: DataTypes.STRING,
-      urgency: DataTypes.DECIMAL
-    });
-    return Todo;
-  };
+  var Todo = sequelize.define("todo", {
+    task: DataTypes.STRING,
+    dueDate: DataTypes.STRING,
+    category: DataTypes.STRING,
+    note: DataTypes.TEXT,
+    urgency: DataTypes.INTEGER,
+    complete: DataTypes.BOOLEAN
+  });
+  return Todo;
+};
