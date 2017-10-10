@@ -27,8 +27,13 @@ module.exports = function(app) {
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property (req.body)
     db.Todo.create({
-      text: req.body.text,
-      complete: req.body.complete
+      task: req.body.task,
+      category: req.body.category,
+      dueDate: req.body.dueDate,
+      note: req.body.note,
+      urgency: req.body.urgency,
+      complete: req.body.complete,
+      
     }).then(function(dbTodo) {
       // We have access to the new todo as an argument inside of the callback function
       res.json(dbTodo);
@@ -60,7 +65,11 @@ module.exports = function(app) {
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
     db.Todo.update({
-      text: req.body.text,
+      task: req.body.task,
+      category: req.body.category,
+      dueDate: req.body.dueDate,
+      note: req.body.note,
+      urgency: req.body.urgency,
       complete: req.body.complete
     }, {
       where: {
