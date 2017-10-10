@@ -19,15 +19,15 @@
     <link href="public/assets/css/elegant-icons-style.css" rel="stylesheet" />
     <link href="public/assets/css/font-awesome.min.css" rel="stylesheet" />
     <!-- full calendar css-->
-    <link href="public/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
-	<link href="public/assets/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" />
+    <link href="public/assets/css/bootstrap-fullcalendar.css" rel="stylesheet" />
+	<link href="public/assets/css/fullcalendar.css" rel="stylesheet" />
     <!-- easy pie chart-->
     <link href="public/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
     <!-- owl carousel -->
     <link rel="stylesheet" href="public/assets/css/owl.carousel.css" type="text/css">
 	<link href="public/assets/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
     <!-- Custom styles -->
-	<link rel="stylesheet" href="public/assets/css/fullcalendar.css">
+	<!-- <link rel="stylesheet" href="public/assets/css/fullcalendar.css"> -->
 	<link href="public/assets/css/widgets.css" rel="stylesheet">
     <link href="public/assets/css/style.css" rel="stylesheet">
     <link href="public/assets/css/style-responsive.css" rel="stylesheet" />
@@ -365,8 +365,8 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="profile.html">Profile</a></li>
-                        <li><a class="" href="login.html"><span>Login Page</span></a></li>
+                        <li><a class="" href="views/profile.html">Profile</a></li>
+                        <li><a class="" href="views/login.html"><span>Login Page</span></a></li>
                         <li><a class="" href="blank.html">Blank Page</a></li>
                         <li><a class="" href="404.html">404 Error</a></li>
                     </ul>
@@ -386,7 +386,7 @@
 				<div class="col-lg-12">
 					<h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
 					<ol class="breadcrumb">
-						<li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+						<li><i class="fa fa-home"></i><a href="./index.html">Home</a></li>
 						<li><i class="fa fa-laptop"></i>Dashboard</li>
 					</ol>
 				</div>
@@ -412,6 +412,74 @@
                     </div>
                 </div>
                 <!--calendar end -->
+
+                
+                <div class="container">
+                        <h2>Modal Example</h2>
+                        
+                        <!-- Trigger the modal with a button -->
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+                        
+                         <!-- Modal to Add Event -->
+                        
+                        <div id=“createEventModal” class=“modal fade” role=“dialog”>
+                            <div class=“modal-dialog”>
+                        
+                                <!-- Modal Content -->
+                                <div class=“modal-content”>
+                                    <div class=“modal-header”>
+                                        <button type=“button” class=“close” data–dismiss=“modal”>&times;</button>
+                                        <h4 class=“modal-title”>Add Event</h4>
+                                    </div>
+                                    <div class=“modal-body”>
+                                        <div class=“control-group”>
+                                            <label class=“control-label” for=“inputPatient”>Event:</label>
+                                            <div class=“field desc”>
+                                                <input class=“form-control” id=“title” name=“title” placeholder=“Event” type=“text” value=“”>
+                                            </div>
+                                        </div>
+                                        <input type=“hidden” id=“startTime”/>
+                                        <input type=“hidden” id=“endTime”/>
+                                        <div class=“control-group”>
+                                            <label class=“control-label” for=“when”>When:</label>
+                                            <div class=“controls controls-row” id=“when” style=“margin-top:5px;”>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=“modal-footer”>
+                                        <button class=“btn” data–dismiss=“modal” aria–hidden=“true”>Cancel</button>
+                                        <button type=“submit” class=“btn btn-primary” id=“submitButton”>Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Modal to Event Details -->
+                        <div id=“calendarModal” class=“modal fade”>
+                            <div class=“modal-dialog”>
+                                <div class=“modal-content”>
+                                    <div class=“modal-header”>
+                                        <button type=“button” class=“close” data–dismiss=“modal”>&times;</button>
+                                        <h4 class=“modal-title”>Event Details</h4>
+                                    </div>
+                                    <div id=“modalBody” class=“modal-body”>
+                                        <h4 id=“modalTitle” class=“modal-title”></h4>
+                                        <div id=“modalWhen” style=“margin-top:5px;”></div>
+                                    </div>
+                                    <input type=“hidden” id=“eventID”/>
+                                    <div class=“modal-footer”>
+                                        <button class=“btn” data–dismiss=“modal” aria–hidden=“true”>Cancel</button>
+                                        <button type=“submit” class=“btn btn-danger” id=“deleteButton”>Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Modal -->
+                        
+                        </div>
+
+
 
                 <!-- Quick post start -->
                 <div class="col-md-6 portlets">
@@ -480,9 +548,9 @@
                     </div>
                 </div>
                 <!-- Quick Post End -->
-            </div>            
+            </div>
             <!-- calendar and Quick Post row end -->
-            
+
             <div class="row">
                     <div class="col-md-4 portlets">
                         <!-- Messages -->
@@ -561,7 +629,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-8">
                         <!--To Do start-->
                         <section class="panel">
@@ -757,13 +825,13 @@
     				</div><!--/col-->
                 </div>
                 <!-- social end -->
-                
-                
+
+
             </div>
 
 
         </section>
-        
+
         <div class="text-right">
             <div class="credits">
                 <!--
@@ -781,6 +849,7 @@
 <!-- container section start -->
 
     <!-- javascripts -->
+    <script src="public/assets/js/moment.js"></script>
     <script src="public/assets/js/jquery.js"></script>
 	<script src="public/assets/js/jquery-ui-1.10.4.min.js"></script>
     <script src="public/assets/js/jquery-1.8.3.min.js"></script>
@@ -796,8 +865,8 @@
     <script src="public/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
     <script src="public/assets/js/owl.carousel.js" ></script>
     <!-- jQuery full calendar -->
-    <<script src="public/assets/js/fullcalendar.min.js"></script> <!-- Full Google Calendar - Calendar -->
-	<script src="public/assets/fullcalendar/fullcalendar/fullcalendar.js"></script>
+    <!-- <script src="public/assets/js/fullcalendar.min.js"></script> <! Full Google Calendar - Calendar -->
+	<script src="public/assets/js/fullcalendar.js"></script>
     <!--script for this page only-->
     <script src="public/assets/js/calendar-custom.js"></script>
 	<script src="public/assets/js/jquery.rateit.min.js"></script>
@@ -820,6 +889,7 @@
 	<script src="public/assets/js/sparklines.js"></script>
 	<script src="public/assets/js/charts.js"></script>
 	<script src="public/assets/js/jquery.slimscroll.min.js"></script>
+
   <script>
 
       //knob
