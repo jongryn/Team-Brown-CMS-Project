@@ -18,52 +18,52 @@ module.exports = function(app) {
   });
 
   // 404 route loads 404.html
-  app.get("/404", function(req, res) {
+  app.get("/views/404.html", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/404.html"));
   });
 
   // basic_table route loads basic_table.html
-  app.get("/basic_table", function(req, res) {
+  app.get("/views/basic_table.html", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/basic_table.html"));
   });
 
   // blank route loads blank.html
-  app.get("/blank", function(req, res) {
+  app.get("/views/blank.html", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/blank.html"));
   });
 
   // buttons route loads buttons.html
-  app.get("/buttons", function(req, res) {
+  app.get("/views/buttons.html", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/buttons.html"));
   });
 
   // chart-chartjs route loads chart-chartjs.html
-  app.get("/chart-chartjs", function(req, res) {
+  app.get("/views/chart-chartjs.html", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/chart-chartjs.html"));
   });  
 
   // form_component route loads form_component.html
-  app.get("/form_component", function(req, res) {
+  app.get("/views/form_component.html", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/form_component.html"));
   });
 
   // form_validation route loads form_validation.html
-  app.get("/form_validation", function(req, res) {
+  app.get("/views/form_validation.html", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/form_validation.html"));
   });  
   
   // general route loads general.html
-  app.get("/general", function(req, res) {
+  app.get("/views/general.html", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/general.html"));
   });
 
   // grids route loads grids.html
-  app.get("/grids", function(req, res) {
+  app.get("views/grids.html", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/grids.html"));
   });  
   
   // login route loads login.html
-  app.get("/login", function(req, res) {
+  app.get("/views/login.html", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/login.html"));
   });    
 
@@ -73,7 +73,7 @@ module.exports = function(app) {
   });  
   
   // widgets route loads widgets.html
-  app.get("/widgets", function(req, res) {
+  app.get("/views/widgets.html", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/widgets.html"));
   });  
   
