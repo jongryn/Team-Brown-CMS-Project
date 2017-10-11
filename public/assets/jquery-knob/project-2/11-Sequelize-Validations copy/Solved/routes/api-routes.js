@@ -12,69 +12,71 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
 
-  // GET route for getting all of the cals
-  app.get("/api/cals", function(req, res) {
+  // GET route for getting all of the todos
+  app.get("/api/todos", function(req, res) {
     // findAll returns all entries for a table when used with no options
-    db.Cal.findAll({}).then(function(dbCal) {
-      // We have access to the cals as an argument inside of the callback function
-      res.json(dbCal);
+    db.Todo.findAll({}).then(function(dbTodo) {
+      // We have access to the todos as an argument inside of the callback function
+      res.json(dbTodo);
     });
   });
 
-  // POST route for saving a new cals
-  app.post("/api/cals", function(req, res) {
+  // POST route for saving a new todo
+  app.post("/api/todos", function(req, res) {
     // create takes an argument of an object describing the item we want to
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property (req.body)
-    db.Cal.create({
+    db.Todo.create({
       task: req.body.task,
       category: req.body.category,
-      startDate: req.body.startDate,
-      endDate: req.body.endDate,
-      note: req.body.note
+      dueDate: req.body.dueDate,
+      note: req.body.note,
+      urgency: req.body.urgency,
+      complete: req.body.complete,
       
-    }).then(function(dbCal) {
-      // We have access to the new cals as an argument inside of the callback function
-      res.json(dbCal);
+    }).then(function(dbTodo) {
+      // We have access to the new todo as an argument inside of the callback function
+      res.json(dbTodo);
     })
     .catch(function(err) {
       // Whenever a validation or flag fails, an error is thrown
-      // We can "catch" the error to prCal it from being "thrown", which could crash our node app
+      // We can "catch" the error to prevent it from being "thrown", which could crash our node app
       res.json(err);
     });
   });
 
-  // DELETE route for deleting cals. We can get the id of the cals to be deleted from
+  // DELETE route for deleting todos. We can get the id of the todo to be deleted from
   // req.params.id
-  app.delete("/api/cals/:id", function(req, res) {
-    // We just have to specify which cals we want to destroy with "where"
-    db.Cal.destroy({
+  app.delete("/api/todos/:id", function(req, res) {
+    // We just have to specify which todo we want to destroy with "where"
+    db.Todo.destroy({
       where: {
         id: req.params.id
       }
-    }).then(function(dbCal) {
-      res.json(dbCal);
+    }).then(function(dbTodo) {
+      res.json(dbTodo);
     });
 
   });
 
-  // PUT route for updating cals. We can get the updated cals data from req.body
-  app.put("/api/cals", function(req, res) {
+  // PUT route for updating todos. We can get the updated todo data from req.body
+  app.put("/api/todos", function(req, res) {
 
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
-    db.Cal.update({
+    db.Todo.update({
       task: req.body.task,
       category: req.body.category,
-      startDate: req.body.startDate,
-      endDate: req.body.endDate,
-      note: req.body.note
+      dueDate: req.body.dueDate,
+      note: req.body.note,
+      urgency: req.body.urgency,
+      complete: req.body.complete
     }, {
       where: {
         id: req.body.id
       }
-    }).then(function(dbCal) {
-      res.json(dbCal);
+    }).then(function(dbTodo) {
+      res.json(dbTodo);
     })
     .catch(function(err) {
       // Whenever a validation or flag fails, an error is thrown

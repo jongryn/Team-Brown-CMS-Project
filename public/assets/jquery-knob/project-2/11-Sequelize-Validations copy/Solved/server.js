@@ -5,20 +5,15 @@
 // *** Dependencies
 // =============================================================
 var express = require("express");
-var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3000;
 
 // Requiring our models for syncing
 var db = require("./models");
-
-// Set Handlebars as the default templating engine.
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
@@ -31,9 +26,7 @@ app.use(express.static("public"));
 
 // Routes
 // =============================================================
-require("./routes/html-routes.js")(app);
-require("./routes/calendar-api-routes.js")(app);
-require("./routes/post-api-routes.js")(app);
+require("./routes/api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

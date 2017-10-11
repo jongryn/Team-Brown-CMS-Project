@@ -4,3 +4,7 @@ CREATE DATABASE todo_db;
 USE todo_db;
 
 -- Create the table tasks.
+
+
+
+
