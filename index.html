@@ -395,6 +395,7 @@
     <section id="main-content">
         <section class="wrapper">
             <div class="container">
+<!-- remove modal start -->               
                 <div class="row">
                     <div class"col-lg-12"> 
                         <h2>Modal Example</h2>
@@ -439,6 +440,7 @@
                         </div>
                     </div>
                 </div>
+<!-- remove modal end -->
                 <!--overview start-->
 	            <div class="row">
                     <div class="col-lg-12">
@@ -552,16 +554,19 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                            <div id="chatDisplay"></div>
+                                        <div id="chatDisplay"></div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="chatInput">
-                                            <div class="chatLabel">Type Your Message!</div>
+                                            <div class="row">   
+                                                <div class="col-sm-12">                                     
                                                 <div class="chatPanel">
                                                     <form id="chat-form">
-                                                    <textarea type="text" id="chat-input"></textarea>
-                                                    <input id="chat-send" type="submit" value="Send" />
-                                                </form>
+                                                        <div><textarea type="text" id="chat-input" placeholder="Message"></textarea></div><br><br><br><br>
+                                                        <input id="chat-send" type="submit" value="Send" />
+                                                    </form>
+                                                </div>
+                                                </div>
                                             </div>
                                         </div><br><br>
                                     </div>
