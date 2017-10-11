@@ -1659,9 +1659,6 @@ div[data-role="editor-toolbar"] {
     color: #bdbdbd;
 
 }
-
-
-
 .top-nav ul.top-menu > li > a {
 
     padding: 8px;
@@ -9879,4 +9876,9 @@ span.customSelect.changed {
     margin: 0;
     padding: 0;
     z-index: 999;
+}
+
+#profile {
+  height: 30%;
+  width: 18%;
 }
